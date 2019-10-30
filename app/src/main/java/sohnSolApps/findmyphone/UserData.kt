@@ -4,13 +4,14 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 
-class  UserData(context: Context) {
-    var context:Context?= context
+class  UserData {
+    var context:Context?= null
     var sharedRef:SharedPreferences?=null
-
-    init {
+    constructor(context:Context){
+        this.context=context
         this.sharedRef= context.getSharedPreferences("userData",Context.MODE_PRIVATE)
     }
+
 
     fun savePhoneNumber(phoneNumber:String){
 
@@ -19,7 +20,7 @@ class  UserData(context: Context) {
         editor.apply()
     }
 
-    fun loadPhoneNumber():String{
+    fun loadPhoneNumber(): String {
 
         val phoneNumber =sharedRef!!.getString("phoneNumber","empty")
         if ( phoneNumber.equals("empty")){

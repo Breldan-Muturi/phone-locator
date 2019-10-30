@@ -110,7 +110,7 @@ class MyTrackerActivity : AppCompatActivity() {
                 if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     pickContact()
                 } else {
-                    Toast.makeText(this, "Cannot acces to contact ", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "Cannot access to contact ", Toast.LENGTH_LONG).show()
                 }
             }
             else -> {
