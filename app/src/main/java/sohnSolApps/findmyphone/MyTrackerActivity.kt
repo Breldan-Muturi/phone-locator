@@ -13,6 +13,7 @@ import android.view.*
 import android.widget.AdapterView
 import android.widget.BaseAdapter
 import android.widget.Toast
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_my_tracker.*
 import kotlinx.android.synthetic.main.contact_ticket.view.*
 
@@ -38,9 +39,9 @@ class MyTrackerActivity : AppCompatActivity() {
                 userData!!.saveContactInfo()
 
                 // remove to Realtime database
-//            val mDatabase = FirebaseDatabase.getInstance().reference
-//            val userData= UserData(applicationContext)
-//            mDatabase.child("Users").child(userInfo.phoneNumber!!).child("Finders").child(userData.loadPhoneNumber()).removeValue()
+            val mDatabase = FirebaseDatabase.getInstance().reference
+            val userData= UserData(applicationContext)
+            mDatabase.child("UserLocation").child(userInfo.phoneNumber!!).child("Finders").child(userData.loadPhoneNumber()).removeValue()
 
             }
 
@@ -169,9 +170,9 @@ class MyTrackerActivity : AppCompatActivity() {
                             userData!!.saveContactInfo()
 
                             // save to Realtime database
-//                            val mDatabase = FirebaseDatabase.getInstance().reference
-//                            val userData= UserData(applicationContext)
-//                            mDatabase.child("Users").child(phoneNumber).child("Finders").child(userData.loadPhoneNumber()).setValue(true)
+                            val mDatabase = FirebaseDatabase.getInstance().reference
+                            val userData= UserData(applicationContext)
+                            mDatabase.child("UserLocation").child(phoneNumber).child("Finders").child(userData.loadPhoneNumber()).setValue(true)
 
                         }
 
